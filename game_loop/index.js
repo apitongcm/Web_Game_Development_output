@@ -31,10 +31,15 @@ window.onload = function() {
         {
             x= -100;
         }
+
+        //period of redraws
+        window.requestAnimationFrame(draw);
         
 
     }
-    setInterval(draw,100);
+      //revision #1 instead of setInterval use requestAnim browser take care of the period of redraws
+      //setInterval(draw,100);
+    draw();
 
 
 }
