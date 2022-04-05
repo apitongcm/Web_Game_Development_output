@@ -6,8 +6,13 @@ window.onload = function()
     var x = 0; 
     var y = 100; 
 
+   
     //include t as time previous 
-    var t; 
+    var t = Date.now(); 
+    //APR 4, 2022 REVISION - adding speed (to adjust speed relative with time)
+    let speed = 100; 
+
+
 
     function draw()
     {
@@ -30,11 +35,10 @@ window.onload = function()
         context.fillStyle = "orange";
         context.fill();
 
-        x += 10;
-        y += 5;
-        if (x >= 600 && y >= 450) {
-            x = -100;
-            y = -50;
+        x += (speed * previousTime);
+        
+        if (x >= 600 ) {
+           x = -100;
         }
 
         window.requestAnimationFrame(draw);
