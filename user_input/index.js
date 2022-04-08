@@ -26,7 +26,9 @@ window.onload = function()
     let left = document.getElementById("left");
 
     //execute command when button is touched 
-    up.onmousedown
+    up.onmousedown = function(){ dir = 4;}
+    down.onmousedown = function(){ dir = 3;}
+    
 
 
     function draw()
