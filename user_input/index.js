@@ -7,13 +7,26 @@ window.onload = function()
     var y = 100; 
 
    
+
+
     //include t as time previous 
     var t = Date.now(); 
     //APR 4, 2022 REVISION - adding speed (to adjust speed relative with time)
     let speed = 100; 
 
     // include direction of the square 
-    let direction = 1;
+    //let direction = 1;
+
+    //APR 7, 2022 
+    //button controls 
+    let dir = 0;
+    let up = document.getElementById("up");
+    let right = document.getElementById("right");
+    let down = document.getElementById("down");
+    let left = document.getElementById("left");
+
+    //execute command when button is touched 
+    up.onmousedown
 
 
     function draw()
