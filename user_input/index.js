@@ -28,6 +28,24 @@ window.onload = function()
     //execute command when button is touched 
     up.onmousedown = function(){ dir = 4;}
     down.onmousedown = function(){ dir = 3;}
+    left.onmousedown = function() {dir = 2;}
+    right.onmousedown = function() {dir = 1;}
+
+    up.ontouchstart = function(){dir =4;}
+    down.ontouchstart = function(){dir = 3;}
+    left.ontouchstart = function(){dir =2; }
+    right.ontouchstart = function(){dir =1;}
+
+
+    up.onmouseup = function(){dir = 0;}
+    down.onmouseup = function(){dir = 0;}
+    left.onmouseup = function(){dir = 0;}
+    right.onmouseup = function(){dir =0;}
+
+    up.ontouchend = function(){dir = 0;}
+    down.ontouchend = function(){dir =0;}
+    left.ontouchend = function(){dir = 0;}
+    right.ontouchend = function(){dir = 0;}
     
 
 
@@ -52,28 +70,34 @@ window.onload = function()
         context.fillStyle = "orange";
         context.fill();
 
-        //draw another object 
-        context.beginPath();
-        context.rect(x,y,50,50);
-        context.fillStyle = "green";
-        context.fill();
-        
-        //draw another object
-        context.beginPath();
-        context.rect(x + 50,y + 50,50,50);
-        context.fillStyle = "red";
-        context.fill();
+       if(dir == 1) { 
+           if (x < 600 - 100)
+           {
+            x += (speed * previousTime);
+           }
+       }
+       else if(dir == 2) {
+           if(x > 0)
+           {
+            x -= (speed * previousTime);
+           }
+            
+       }
+       else if (dir == 3) { 
+           if(y < 450 - 100)
+           {
+            y += (speed * previousTime);
+           }
+       }
+       else if (dir == 4) { 
+           if(y > 0)
+           {
+            y -= (speed * previousTime);
+           }
+       }
+    
 
-        x += direction * (speed * previousTime);
-
-        //if you want to move vertical. . .
-       // y += direction * (speed * previousTime);
-       
-        
-        if (x >= 600 - 100 || x <= 0 ) {
-           direction *= -1;
-             
-        }
+      
 
         window.requestAnimationFrame(draw);
 
